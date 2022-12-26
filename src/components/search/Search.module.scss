@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  position: relative;
+  margin-top: 3em;
+  // margin-left: 25%;
+  // border: 1px solid red;
+  .icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.5;
+    position: absolute;
+    left: 24%;
+    top: 13px;
+  }
+  .clear {
+    opacity: 0.3;
+    position: absolute;
+    right: 25%;
+    top: 20px;
+  }
+
+  .input {
+    width: 55%;
+    height: 3em;
+    padding-left: 3em;
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    &:focus {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.root {
+  margin-left: 10em;
+
+  li {
+    display: inline-block;
+
+    a {
+      text-align: center;
+      line-height: 20px;
+      width: 40px;
+      height: 40px;
+      padding: 10px 15px;
+      border: 1px solid #fe5f1e;
+      border-radius: 50px;
+      margin-left: 10px;
+      cursor: pointer;
+      color: #fe5f1e;
+      display: inline-block;
+
+      &:hover {
+        background-color: #fe5f1e;
+        color: aliceblue;
+      }
+    }
+  }
+  :global {
+    .selected {
+     a{
+        background-color: #fe5f1e;
+        color: aliceblue;
+     }
+    }
+  }
+
+  //    :global{
+  //     .previous{
+  //         background-color: red;
+  //     }
+  //    }
+}

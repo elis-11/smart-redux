@@ -1,0 +1,158 @@
+[
+    {
+        "_id": "p1",
+        "title": "Planet Star Necklace",
+        "weight": "18",
+        "category": "1",
+        "status": [
+            0,
+            1
+        ],
+        "price": 74.99,
+        "volume": 7,
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "count": 0,
+        "rating": 4,
+        "imageUrl": "https://www.helloice.com/media/catalog/product/cache/877042223109cc2bc0869ffe42af0ed8/6/2/6257e872e2a97jpg.jpg"
+    },
+    {
+        "_id": "p2",
+        "title": "Helloice Spinner Ring",
+        "weight": "32",
+        "category": "3",
+        "status": [
+            0
+        ],
+        "price": 45.99,
+        "volume": 8,
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "count": 0,
+        "rating": 1,
+        "imageUrl": "https://www.helloice.com/media/catalog/product/cache/877042223109cc2bc0869ffe42af0ed8/6/2/62539d0e6d8d9jpg.jpg"
+    },
+    {
+        "_id": "p3",
+        "title": "Helloice Moonstone Bracelet",
+        "weight": "27",
+        "category": "2",
+        "status": [
+            0,
+            1
+        ],
+        "price": 39.99,
+        "volume": 8,
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "count": 0,
+        "rating": 3,
+        "imageUrl": "https://www.helloice.com/media/catalog/product/cache/877042223109cc2bc0869ffe42af0ed8/6/2/6257f34831fc4jpg_1.jpg"
+    },
+    {
+        "_id": "p4",
+        "title": "Brilliant Square Earrings",
+        "weight": "19",
+        "category": "4",
+        "status": [
+            0,
+            1
+        ],
+        "price": 105.99,
+        "volume": 8,
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "count": 0,
+        "rating": 4,
+        "imageUrl": "https://www.helloice.com/media/catalog/product/cache/877042223109cc2bc0869ffe42af0ed8/6/2/6253e307062e6jpg.jpg"
+    },
+    {
+        "_id": "p5",
+        "title": "Crystal Bracelet Set",
+        "weight": "25",
+        "category": "2",
+        "status": [
+            0
+        ],
+        "price": 26.99,
+        "volume": 7,
+        "sizes": [
+            "S",
+            "M",
+            "L" 
+        ],
+        "count": 0,
+        "rating": 4,
+        "imageUrl": "https://www.helloice.com/media/catalog/product/cache/877042223109cc2bc0869ffe42af0ed8/6/2/625929e362df7jpg.jpg"
+    },
+    {
+        "_id": "p6",
+        "title": "Helloice Triangle Ring",
+        "weight": "18",
+        "category": "3",
+        "status": [
+            0,
+            1
+        ],
+        "price": 51.99,
+        "volume": 6,
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "count": 0,
+        "rating": 4,
+        "imageUrl": "https://www.helloice.com/media/catalog/product/cache/877042223109cc2bc0869ffe42af0ed8/6/2/625955f054247jpg_1.jpg"
+    },
+    {
+        "_id": "p7",
+        "title": "Helloice 0.5Ct Earrings",
+        "weight": "15",
+        "category": "4",
+        "status": [
+            0,
+            1
+        ],
+        "price": 102.49,
+        "volume": 2,
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "count": 0,
+        "rating": 2,
+        "imageUrl": "https://www.helloice.com/media/catalog/product/cache/877042223109cc2bc0869ffe42af0ed8/6/2/6253e610921c1jpg_1.jpg"
+    },
+    {
+        "_id": "p8",
+        "title": "Design Engagement Ring",
+        "weight": "15",
+        "category": "3",
+        "status": [
+            0,
+            1
+        ],
+        "price": 129.49,
+        "volume": 2,
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "count": 0,
+        "rating": 2,
+        "imageUrl": "https://www.helloice.com/media/catalog/product/cache/877042223109cc2bc0869ffe42af0ed8/6/2/62eb857fd854ejpg.jpg"
+    }
+]
