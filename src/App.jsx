@@ -17,14 +17,14 @@ function App() {
   return (
     <div className="collumn items-center bg-orange-50">
 
-      {/* <DataContext.Provider value={{ searchValue, setSearchValue }}>
+       <DataContext.Provider value={{ searchValue, setSearchValue }}>
         <Header />
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </DataContext.Provider> */}
+      </DataContext.Provider> 
             <div className="Counter">
         <button
           aria-label="Increment value"
