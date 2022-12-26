@@ -18,7 +18,7 @@ export const Header = () => {
           </NavLink>
           <NavLink to="/cart">Cart</NavLink>
         </nav>
-        <h2 className="">Smart Challenges</h2>
+        <h2 className="">Smart Redux</h2>
         <Link to="/">
           <img className="w-10 h-10 ml-4 mb-0 " src={logo} alt="Logo" />
         </Link>
