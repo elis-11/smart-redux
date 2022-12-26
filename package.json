@@ -1,5 +1,5 @@
 {
-  "name": "smart-redux",
+  "name": "smart-redux-toolkit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
