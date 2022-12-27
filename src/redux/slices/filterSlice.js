@@ -4,7 +4,7 @@ const initialState = {
   categoryId: 0,
   sort: {
     name: "popular",
-    sort: "rating",
+    sorted: "rating",
   },
 };
 
@@ -16,9 +16,12 @@ export const filterSlice = createSlice({
       console.log('action.setCategoryId', action)
       state.categoryId = action.payload;
     },
+    setSort(state, action) {
+      state.sort = action.payload;
+    }
   },
 });
 
-export const {setCategoryId} = filterSlice.actions; // cut setCategoryId as constants and export it
+export const {setCategoryId, setSort} = filterSlice.actions; // cut setCategoryId as constants and export it
 
 export default filterSlice.reducer;  

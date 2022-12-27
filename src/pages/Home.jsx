@@ -11,34 +11,34 @@ import { setCategoryId } from "../redux/slices/filterSlice";
 // import productsJson from "./assets/products.json";
 
 export const Home = () => {
-  const dispatch = useDispatch()
-  const categoryId = useSelector((state) => state.filter.categoryId); // holt categoryId from filterSlice
-  console.log("redux-state",'id-category', categoryId);
+  const dispatch = useDispatch();
+  const { categoryId, sort } = useSelector((state) => state.filter); // import categoryId & sort from filterSlice/filter
+  // const categoryId = useSelector((state) => state.filter.categoryId)
+  // const sortType = useSelector((state) => state.filter.sort.sorted)
+  
+  // const [categoryId, setCategoryId] = useState(0);
+  // const [sortType, setSortType] = useState({
+  //   name: "popular",
+  //   sorted: "rating",
+  // });
+  console.log("redux-state", "id-category", categoryId);
 
   // const setCategoryId = () => {}; // f - saglushka
 
   const { searchValue } = useContext(DataContext);
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [categoryId, setCategoryId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1); // pagination
-  const [sortType, setSortType] = useState({
-    name: "popular",
-    sort: "rating",
-  });
 
-  const onChangeCategory = ( id) => {
-    console.log(id)
-    dispatch(setCategoryId(id))
-  }
-
-  console.log(categoryId, sortType);
+  const onChangeCategory = (id) => {
+    dispatch(setCategoryId(id));
+  };
 
   useEffect(() => {
     setIsLoading(true);
 
-    const order = sortType.sort.includes("-") ? "asc" : "desc"; // delete minus ('-')
-    const sortBy = sortType.sort.replace("-", ""); // if minus ? "asc" : "desc
+    const order = sort.sorted.includes("-") ? "asc" : "desc"; // delete minus ('-')
+    const sortBy = sort.sorted.replace("-", ""); // if minus ? "asc" : "desc
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
@@ -52,7 +52,7 @@ export const Home = () => {
     };
     fetchData();
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, searchValue, currentPage]); // [] - means didMount = perwiy render
+  }, [categoryId, sort.sorted, searchValue, currentPage]); // [] - means didMount = perwiy render
   // const [products, setProducts] = useState(productsJson);
 
   const addProduct = (id) => {
@@ -139,11 +139,8 @@ export const Home = () => {
   return (
     <div className="collumn justify-center  ">
       <div className="header flex justify-between h-36 mx-12">
-        <Categories
-          value={categoryId}
-          onChangeCategory={onChangeCategory}
-        />
-        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
+        <Sort />
       </div>
       <div className="flex flex-row justify-between ">
         <div className="pl-5rem font-bold text-4xl text-gray-500">

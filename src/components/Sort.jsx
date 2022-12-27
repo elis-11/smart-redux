@@ -1,19 +1,26 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSort } from "../redux/slices/filterSlice";
 
-export const Sort = ({ value, onChangeSort }) => {
+const list = [
+  { name: "popular (DESC)", sorted: "rating" },
+  { name: "popular (ASC)", sorted: "-rating" },
+  { name: "price (DESC)", sorted: "price" },
+  { name: "price (ASC)", sorted: "-price" },
+  { name: "alphabet (DESC)", sorted: "title" },
+  { name: "alphabet (ASC)", sorted: "-title" },
+];
+
+export const Sort = () => {
+  const dispatch = useDispatch();
+  const sort = useSelector((state) => state.filter.sort);
+
   const [isVisible, setIsVisible] = useState(false);
-  const list = [
-    {name: "popular (DESC)", sort: 'rating'},
-    {name: "popular (ASC)", sort: '-rating'},
-    {name: "price (DESC)", sort: 'price'},
-    {name: "price (ASC)", sort: '-price'},
-    {name: "alphabet (DESC)", sort: 'title'},
-    {name: "alphabet (ASC)", sort: '-title'},
-  ]
   // const sortName = list[value].name;
 
-  const onClickListItem = (i) => {
-    onChangeSort(i); // select one item
+  const onClickListItem = (obj) => {
+    // onChangeSort(i); // select one item
+    dispatch(setSort(obj));  // = dispatch('type: filters/setSort');
     setIsVisible(false); // & hide popup
   };
 
@@ -25,7 +32,7 @@ export const Sort = ({ value, onChangeSort }) => {
           onClick={() => setIsVisible(!isVisible)}
           className="ml-2 border-dotted border-orange-500 border-b-4 text-orange-500 cursor-pointer"
         >
-          {value.name}
+          {sort.name}
         </span>
       </div>
       {isVisible && (
@@ -35,7 +42,7 @@ export const Sort = ({ value, onChangeSort }) => {
               key={i}
               onClick={() => onClickListItem(obj)}
               className={`${
-                value.sort === obj.sort ? "active" : ""
+                sort.sorted === obj.sorted ? "active" : ""
               } pl-5 my-0.5 w-40 bg-orange-100 font-bold  hover:bg-orange-50 cursor-pointer`}
             >
               {obj.name}
