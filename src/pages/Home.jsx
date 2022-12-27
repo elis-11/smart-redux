@@ -6,18 +6,32 @@ import { Pagination } from "../components/pagination/Pagination";
 import { DataContext } from "../App";
 import { AddProducts } from "../components/products/AddProducts";
 import { ProductsInFridge } from "../components/products/ProductsInFridge";
+import { useDispatch, useSelector } from "react-redux";
+import { setCategoryId } from "../redux/slices/filterSlice";
 // import productsJson from "./assets/products.json";
 
 export const Home = () => {
+  const dispatch = useDispatch()
+  const categoryId = useSelector((state) => state.filter.categoryId); // holt categoryId from filterSlice
+  console.log("redux-state",'id-category', categoryId);
+
+  // const setCategoryId = () => {}; // f - saglushka
+
   const { searchValue } = useContext(DataContext);
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategoryId] = useState(0);
+  // const [categoryId, setCategoryId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1); // pagination
   const [sortType, setSortType] = useState({
     name: "popular",
     sort: "rating",
   });
+
+  const onChangeCategory = ( id) => {
+    console.log(id)
+    dispatch(setCategoryId(id))
+  }
+
   console.log(categoryId, sortType);
 
   useEffect(() => {
@@ -127,7 +141,7 @@ export const Home = () => {
       <div className="header flex justify-between h-36 mx-12">
         <Categories
           value={categoryId}
-          onChangeCategory={(i) => setCategoryId(i)}
+          onChangeCategory={onChangeCategory}
         />
         <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
       </div>
