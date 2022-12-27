@@ -12,10 +12,10 @@ import { setCategoryId } from "../redux/slices/filterSlice";
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const { categoryId, sort } = useSelector((state) => state.filter); // import categoryId & sort from filterSlice/filter
+  const { categoryId, sort: {sorted} } = useSelector((state) => state.filter); // import categoryId & sort from filterSlice/filter
   // const categoryId = useSelector((state) => state.filter.categoryId)
   // const sortType = useSelector((state) => state.filter.sort.sorted)
-  
+
   // const [categoryId, setCategoryId] = useState(0);
   // const [sortType, setSortType] = useState({
   //   name: "popular",
@@ -37,8 +37,8 @@ export const Home = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    const order = sort.sorted.includes("-") ? "asc" : "desc"; // delete minus ('-')
-    const sortBy = sort.sorted.replace("-", ""); // if minus ? "asc" : "desc
+    const order = sorted.includes("-") ? "asc" : "desc"; // delete minus ('-')
+    const sortBy = sorted.replace("-", ""); // if minus ? "asc" : "desc
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
@@ -52,7 +52,7 @@ export const Home = () => {
     };
     fetchData();
     window.scrollTo(0, 0);
-  }, [categoryId, sort.sorted, searchValue, currentPage]); // [] - means didMount = perwiy render
+  }, [categoryId, sorted, searchValue, currentPage]); // [] - means didMount = perwiy render
   // const [products, setProducts] = useState(productsJson);
 
   const addProduct = (id) => {
