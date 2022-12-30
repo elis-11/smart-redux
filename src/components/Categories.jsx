@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from './Categories.module.scss';
 
 export const Categories = ({value, onChangeCategory}) => {
   // console.log(value)
@@ -7,14 +8,18 @@ export const Categories = ({value, onChangeCategory}) => {
 
   return (
     <>
-      <div className="categories flex mt-12">
+      <div className={styles.categories}>
+      {/* <div className="categories flex mt-12"> */}
         {categories.map((categoryName, i) => (
           <div
             key={i}
             onClick={() => onChangeCategory(i)}
+            // className={`${
+            //   value === i ? "active" : ""
+            // } bg-orange-300 hover:bg-orange-500 active:bg-orange-400 text-white p-4 m-2 h-12  rounded-2xl opacity-50 cursor-pointer`}
             className={`${
               value === i ? "active" : ""
-            } bg-orange-300 hover:bg-orange-500 active:bg-orange-400 text-white p-4 m-2 h-12  rounded-2xl opacity-50 cursor-pointer`}
+            } ${styles.item}`}
           >
             {categoryName}
           </div>
