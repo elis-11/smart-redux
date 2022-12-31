@@ -8,11 +8,15 @@ import { AddProducts } from "../components/products/AddProducts";
 import { ProductsInFridge } from "../components/products/ProductsInFridge";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategoryId } from "../redux/slices/filterSlice";
+import axios from "axios";
 // import productsJson from "./assets/products.json";
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const { categoryId, sort: {sorted} } = useSelector((state) => state.filter); // import categoryId & sort from filterSlice/filter
+  const {
+    categoryId,
+    sort: { sorted },
+  } = useSelector((state) => state.filter); // import categoryId & sort from filterSlice/filter
   // const categoryId = useSelector((state) => state.filter.categoryId)
   // const sortType = useSelector((state) => state.filter.sort.sorted)
 
@@ -42,15 +46,20 @@ export const Home = () => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
-    const fetchData = async () => {
-      let response = await fetch(
-        `https://639102970bf398c73a98b8ea.mockapi.io/accessories?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
-      ); // wenn will be sapros / response
-      response = await response.json(); // conwert otwet in json, werni otwet w json
-      setProducts(response);
-      setIsLoading(false);
-    };
-    fetchData();
+    // const fetchData = async () => {
+    //   let response = await fetch(
+    //     `https://639102970bf398c73a98b8ea.mockapi.io/accessories?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+    //   ); // wenn will be sapros / response
+    //   response = await response.json(); // conwert otwet in json, werni otwet w json
+    //   setProducts(response);
+    //   setIsLoading(false);
+    // };
+    // fetchData();
+    axios.get(`https://639102970bf398c73a98b8ea.mockapi.io/accessories?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`)
+    .then(res => {
+      setProducts(res.data)
+      setIsLoading(false)
+    })
     window.scrollTo(0, 0);
   }, [categoryId, sorted, searchValue, currentPage]); // [] - means didMount = perwiy render
   // const [products, setProducts] = useState(productsJson);

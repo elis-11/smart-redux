@@ -53,6 +53,16 @@ export const Home = () => {
     fetchData();
     window.scrollTo(0, 0);
   }, [categoryId, sorted, searchValue, currentPage]); // [] - means didMount = perwiy render
+
+    // rovno
+
+  //   axios.get(`https://639102970bf398c73a98b8ea.mockapi.io/accessories?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`)
+  //   .then(res => {
+  //     setProducts(res.data)
+  //     setIsLoading(false)
+  //   })
+  //   window.scrollTo(0, 0);
+  // }, [categoryId, sorted, searchValue, currentPage]); // [] - means didMount = perwiy render
   // const [products, setProducts] = useState(productsJson);
 
   const addProduct = (id) => {
