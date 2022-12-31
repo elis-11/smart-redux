@@ -7,7 +7,7 @@ import { DataContext } from "../App";
 import { AddProducts } from "../components/products/AddProducts";
 import { ProductsInFridge } from "../components/products/ProductsInFridge";
 import { useDispatch, useSelector } from "react-redux";
-import { setCategoryId } from "../redux/slices/filterSlice";
+import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
 import axios from "axios";
 // import productsJson from "./assets/products.json";
 
@@ -15,6 +15,7 @@ export const Home = () => {
   const dispatch = useDispatch();
   const {
     categoryId,
+    currentPage,
     sort: { sorted },
   } = useSelector((state) => state.filter); // import categoryId & sort from filterSlice/filter
   // const categoryId = useSelector((state) => state.filter.categoryId)
@@ -32,11 +33,14 @@ export const Home = () => {
   const { searchValue } = useContext(DataContext);
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1); // pagination
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
   };
+
+  const onChangePage = number => {
+    dispatch(setCurrentPage(number));
+  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -191,7 +195,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <Pagination onChangePage={(number) => setCurrentPage(number)} />
+      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
 };
