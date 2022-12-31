@@ -15,7 +15,7 @@ export const ProductsInFridge = ({
         Total: {countProductsInFridge}
       </div>
       <div className="flex justify-center mt-2 text-orange-500 font-bold ">
-        Products: {productsJsxInFridge}
+        Products: {productsJsxInFridge.join(',')}
       </div>
       <div className="total flex justify-center mt-6 font-bold">
         Total price: {fridgeTotalPrice.toFixed(2)}

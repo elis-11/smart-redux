@@ -146,7 +146,8 @@ export const Home = () => {
   const productsJsxInFridge = [];
   for (let key in displayProductsInFridge) {
     productsJsxInFridge.push(
-      ` ${key}: ${""} ${displayProductsInFridge[key]} ${","}`
+      // ` ${key}: ${""} ${displayProductsInFridge[key]}`
+      ` ${key}`
     );
   }
   return (
