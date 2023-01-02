@@ -44,7 +44,6 @@ export const Home = () => {
 
   useEffect(() => {
     setIsLoading(true);
-
     const order = sorted.includes("-") ? "asc" : "desc"; // delete minus ('-')
     const sortBy = sorted.replace("-", ""); // if minus ? "asc" : "desc
     const category = categoryId > 0 ? `category=${categoryId}` : "";
@@ -59,12 +58,25 @@ export const Home = () => {
     //   setIsLoading(false);
     // };
     // fetchData();
-    axios.get(`https://639102970bf398c73a98b8ea.mockapi.io/accessories?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`)
+
+  //  useEffect(() => {
+  //   const fetchData = async () => {
+  //   const result = await axios(url);
+  //   localStorage.setItem(url, JSON.stringify(result));
+  //   setData({ hits: result.data.hits });
+  //   };
+  //   fetchData();
+  // }, [url]);
+
+    const fetchData = async () => {
+  await axios.get(`https://639102970bf398c73a98b8ea.mockapi.io/accessories?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`)
     .then(res => {
       setProducts(res.data)
       setIsLoading(false)
     })
     window.scrollTo(0, 0);
+  }
+  fetchData()
   }, [categoryId, sorted, searchValue, currentPage]); // [] - means didMount = perwiy render
   // const [products, setProducts] = useState(productsJson);
 

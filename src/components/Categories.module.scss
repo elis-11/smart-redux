@@ -4,7 +4,7 @@
       display: flex;
       margin-top: 1rem;
   
-      .item {
+      .category {
         display: flex;
         place-items: center;
         justify-content: center;
@@ -23,13 +23,13 @@
         }
   
         &:active {
-          background-color: darken(#fd842d, 5%);
+          background-color: (#fd842d);
         }
   
-        &.active {
-          background-color: #fd842d;
-          color: #fff;
-        }
+        // &.active {
+        //   background-color: #fd842d;
+        //   color: #fff;
+        // }
       }
     }
   
