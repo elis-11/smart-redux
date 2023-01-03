@@ -38,9 +38,9 @@ export const Home = () => {
     dispatch(setCategoryId(id));
   };
 
-  const onChangePage = number => {
+  const onChangePage = (number) => {
     dispatch(setCurrentPage(number));
-  }
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -59,24 +59,27 @@ export const Home = () => {
     // };
     // fetchData();
 
-  //  useEffect(() => {
-  //   const fetchData = async () => {
-  //   const result = await axios(url);
-  //   localStorage.setItem(url, JSON.stringify(result));
-  //   setData({ hits: result.data.hits });
-  //   };
-  //   fetchData();
-  // }, [url]);
+    //  useEffect(() => {
+    //   const fetchData = async () => {
+    //   const result = await axios(url);
+    //   localStorage.setItem(url, JSON.stringify(result));
+    //   setData({ hits: result.data.hits });
+    //   };
+    //   fetchData();
+    // }, [url]);
 
     const fetchData = async () => {
-  await axios.get(`https://639102970bf398c73a98b8ea.mockapi.io/accessories?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`)
-    .then(res => {
-      setProducts(res.data)
-      setIsLoading(false)
-    })
-    window.scrollTo(0, 0);
-  }
-  fetchData()
+      await axios
+        .get(
+          `https://639102970bf398c73a98b8ea.mockapi.io/accessories?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+        )
+        .then((res) => {
+          setProducts(res.data);
+          setIsLoading(false);
+        });
+      window.scrollTo(0, 0);
+    };
+    fetchData();
   }, [categoryId, sorted, searchValue, currentPage]); // [] - means didMount = perwiy render
   // const [products, setProducts] = useState(productsJson);
 

@@ -20,7 +20,7 @@ export const Sort = () => {
 
   const onClickListItem = (obj) => {
     // onChangeSort(i); // select one item
-    dispatch(setSort(obj));  // = dispatch('type: filters/setSort');
+    dispatch(setSort(obj));  // = dispatch('type: filter/setSort');
     setIsVisible(false); // & hide popup
   };
 
